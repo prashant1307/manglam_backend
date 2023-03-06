@@ -6,6 +6,7 @@ const argon2 = require('argon2');
 const jwt=require("jsonwebtoken");
 const UserRoute = require('./src/routes/user.routes');
 const ProductRoute = require('./src/routes/product.route');
+const CartRoute = require('./src/routes/cart.route');
 
 mongoose.set('strictQuery', false);
 require('dotenv').config();
@@ -19,6 +20,7 @@ app.use(express.json())
 
 app.use("/user",UserRoute)
 app.use("/products",ProductRoute)
+app.use("/cart",CartRoute)
 
 
 app.get('/',(req,res) => res.send('welcome to manglam backend'))

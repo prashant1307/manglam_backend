@@ -19,7 +19,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.use("/user",UserRoute)
-app.use("/products",ProductRoute)
+app.use("/product",ProductRoute)
 app.use("/cart",CartRoute)
 
 

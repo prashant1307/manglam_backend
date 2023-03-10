@@ -12,29 +12,35 @@ const getProduct=async(limit,page,category,sort,low,high,strike)=>{
 }
 
 const getOneProduct=async(id)=>{
-    try{
-        let findData = await productModel.findOne({id});
-        console.log(typeof findData , findData)
-        if(findData.title == null ||findData.title == undefined ){
-            return {
-                status:false,
-                massage:'Something went wrong please try again later !'
-            }
-        }
-        else{
-            return {
-                status:true,
-                massage:'Product data fetched sucessfully',
-                data : findData
-            }
-        }
-      }
-      catch(e){
-        return {
-            status:false,
-            massage:e.message
-        }
+    try {
+        let findData=await productModel.findOne({id})
+        return findData
+    } catch (e) {
+        return e+"hel"
     }
+    // try{
+    //     let findData = await productModel.findOne({id});
+    //     console.log(typeof findData , findData)
+    //     if(findData.title == null ||findData.title == undefined ){
+    //         return {
+    //             status:false,
+    //             massage:'Something went wrong please try again later !'
+    //         }
+    //     }
+    //     else{
+    //         return {
+    //             status:true,
+    //             massage:'Product data fetched sucessfully',
+    //             data : findData
+    //         }
+    //     }
+    //   }
+    //   catch(e){
+    //     return {
+    //         status:false,
+    //         massage:e.message
+    //     }
+    // }
 }
 
 module.exports={getProduct,getOneProduct}
